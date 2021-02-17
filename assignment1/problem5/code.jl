@@ -4,22 +4,22 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ edef2a12-711e-11eb-1577-df0aa8d43759
+# ╔═╡ c8d82e90-7150-11eb-2ab0-716ca4990e8d
 using Random
 
-# ╔═╡ 61b2cb8e-711f-11eb-002d-a5def16f30ef
+# ╔═╡ e194dd0c-7150-11eb-2b00-431d8d83f43e
 chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '=', '-', '`']
 
-# ╔═╡ 6eb0163e-711f-11eb-044e-1bdadeb31049
+# ╔═╡ e7c02482-7150-11eb-1ef9-8f8dd345f981
 password_length = 8
 
-# ╔═╡ 4788c5da-7122-11eb-1e29-c3a98b36753d
+# ╔═╡ f3ac5ff6-7150-11eb-2ab5-e77a71442f41
 begin
-	Random.seed!(0)
+	Random.seed!(10)
 	password = rand(chars, password_length)
 end
 
-# ╔═╡ 76c808ec-7122-11eb-1bc5-df02e222cc29
+# ╔═╡ f527b452-7150-11eb-396e-49cae14d1a95
 function compare_strings(str1, str2, n_similarity)
 	count = 0
 	for i in 1:min(length(str1), length(str2))
@@ -34,13 +34,13 @@ function compare_strings(str1, str2, n_similarity)
 	end
 end
 
-# ╔═╡ 131be614-7123-11eb-370d-0f37b540f3b4
-similarity_threshold = 2
+# ╔═╡ 251c2fe4-7151-11eb-2495-d5fb57b92498
+similarity_threshold = 3
 
-# ╔═╡ 6d8cd15e-714c-11eb-14e5-9da91578813e
-n_experiments = 10^8
+# ╔═╡ cdeb2d02-7151-11eb-3ac1-ef492523b2ed
+n_experiments = 10^6
 
-# ╔═╡ 658f237a-7123-11eb-3cb8-55270653de7c
+# ╔═╡ 32898136-7151-11eb-1a18-9125fd5b18b2
 begin
 	matches = 0
 	for i in 1:n_experiments
@@ -52,20 +52,20 @@ begin
 	p_match = matches/n_experiments
 end
 
-# ╔═╡ 5bf82614-714f-11eb-2bd1-87970bade160
+# ╔═╡ 298badce-7152-11eb-1b62-d984bdc73355
 p_match
 
-# ╔═╡ 06ccd6c8-7152-11eb-0d99-e902ab254a85
+# ╔═╡ 4adbbf32-7152-11eb-0e3b-b13757e496a2
 matches
 
 # ╔═╡ Cell order:
-# ╠═edef2a12-711e-11eb-1577-df0aa8d43759
-# ╠═61b2cb8e-711f-11eb-002d-a5def16f30ef
-# ╠═6eb0163e-711f-11eb-044e-1bdadeb31049
-# ╠═4788c5da-7122-11eb-1e29-c3a98b36753d
-# ╠═76c808ec-7122-11eb-1bc5-df02e222cc29
-# ╠═131be614-7123-11eb-370d-0f37b540f3b4
-# ╠═6d8cd15e-714c-11eb-14e5-9da91578813e
-# ╠═658f237a-7123-11eb-3cb8-55270653de7c
-# ╠═5bf82614-714f-11eb-2bd1-87970bade160
-# ╠═06ccd6c8-7152-11eb-0d99-e902ab254a85
+# ╠═c8d82e90-7150-11eb-2ab0-716ca4990e8d
+# ╠═e194dd0c-7150-11eb-2b00-431d8d83f43e
+# ╠═e7c02482-7150-11eb-1ef9-8f8dd345f981
+# ╠═f3ac5ff6-7150-11eb-2ab5-e77a71442f41
+# ╠═f527b452-7150-11eb-396e-49cae14d1a95
+# ╠═251c2fe4-7151-11eb-2495-d5fb57b92498
+# ╠═cdeb2d02-7151-11eb-3ac1-ef492523b2ed
+# ╠═32898136-7151-11eb-1a18-9125fd5b18b2
+# ╠═298badce-7152-11eb-1b62-d984bdc73355
+# ╠═4adbbf32-7152-11eb-0e3b-b13757e496a2
