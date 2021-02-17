@@ -1,20 +1,40 @@
-using Random
-using Plots
-pyplot()
+### A Pluto.jl notebook ###
+# v0.12.20
 
+using Markdown
+using InteractiveUtils
 
-range = -10:10
-n_samples = 10^6
-Random.seed!(0)
-exp_ints = rand(range, n_samples)
-means = []
-let init = 0
-    for i in 1:n_samples
-        sample = exp_ints[i]
-        init += sample
-        push!(means, init/i)
-    end
+# ╔═╡ 783b550e-707f-11eb-324d-07ccd4de1f2e
+begin
+	using Random
+	using Plots
+	pyplot()
 end
 
-P = plot(1:n_samples, means, xlabel="Number of Samples", ylabel="Mean", show=true)
-savefig(P,"problem1.png")
+# ╔═╡ d396c3f4-707f-11eb-2bff-05e2ecd1590d
+begin
+	range = -10:10
+	n_samples = 10^5
+	Random.seed!(0)
+	exp_ints = rand(range, n_samples)
+end
+
+# ╔═╡ d9fd91fe-7080-11eb-150a-9dccb13c4da2
+begin
+	means = []
+	init = 0
+	for i in 1:n_samples
+	    sample = exp_ints[i]
+		init += sample
+		push!(means, init/i)
+	end
+end
+
+# ╔═╡ df9a9660-708b-11eb-2b80-c338f0ded6bf
+plot(1:n_samples, means, xlabel="Number of Samples", ylabel="Mean")
+
+# ╔═╡ Cell order:
+# ╠═783b550e-707f-11eb-324d-07ccd4de1f2e
+# ╠═d396c3f4-707f-11eb-2bff-05e2ecd1590d
+# ╠═d9fd91fe-7080-11eb-150a-9dccb13c4da2
+# ╠═df9a9660-708b-11eb-2b80-c338f0ded6bf
