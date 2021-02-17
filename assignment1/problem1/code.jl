@@ -14,7 +14,7 @@ end
 # ╔═╡ d396c3f4-707f-11eb-2bff-05e2ecd1590d
 begin
 	range = -10:10
-	n_samples = 10^5
+	n_samples = 10^6
 	Random.seed!(0)
 	exp_ints = rand(range, n_samples)
 end
