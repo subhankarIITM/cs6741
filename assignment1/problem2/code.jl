@@ -50,15 +50,11 @@ end
 # ╔═╡ 59f9de96-7110-11eb-29ca-35a73c3c51ab
 md"**With Replacement**"
 
-# ╔═╡ 23d5f182-7111-11eb-127c-17d76b96844c
-begin
-	run_again_replacement
-	counts = zeros(n_cards_to_draw+1)
-end
-
 # ╔═╡ 1ca61a34-7113-11eb-22f4-095d19ec748e
 begin
 	run_again_replacement
+	counts = zeros(n_cards_to_draw+1)
+	Random.seed!(0)
 	for i in 1:n_experiments
 		cards_drawn = sample(card_indices, n_cards_to_draw, replace=true)
 		n_jacks_drawn = 0
@@ -69,11 +65,6 @@ begin
 		end
 		counts[n_jacks_drawn+1]+=1
 	end
-end
-
-# ╔═╡ 9b3b882a-7113-11eb-33c9-57832bd1f4a4
-begin
-	run_again_replacement
 	counts./=n_experiments
 end
 
@@ -86,15 +77,11 @@ end
 # ╔═╡ ba950b68-7115-11eb-13b6-ffe94099e7ec
 md"**Without Replacement**"
 
-# ╔═╡ 13b996d2-7116-11eb-1c1b-ad7ba95014ff
-begin
-	run_again_non_replacement
-	counts_ = zeros(n_cards_to_draw+1)
-end
-
 # ╔═╡ 36331fec-7118-11eb-0956-e16a37f156ca
 begin
 	run_again_non_replacement
+	counts_ = zeros(n_cards_to_draw+1)
+	Random.seed!(0)
 	for i in 1:n_experiments
 		cards_drawn = sample(card_indices, n_cards_to_draw, replace=false)
 		n_jacks_drawn = 0
@@ -105,11 +92,6 @@ begin
 		end
 		counts_[n_jacks_drawn+1]+=1
 	end
-end
-
-# ╔═╡ 5493c644-7118-11eb-3b7e-f74db831e9fa
-begin
-	run_again_non_replacement
 	counts_./=n_experiments
 end
 
@@ -128,12 +110,8 @@ end
 # ╠═bb37b3cc-7110-11eb-249f-f1f3c541926f
 # ╠═a5572920-7110-11eb-3195-9bb705df926b
 # ╟─59f9de96-7110-11eb-29ca-35a73c3c51ab
-# ╠═23d5f182-7111-11eb-127c-17d76b96844c
 # ╠═1ca61a34-7113-11eb-22f4-095d19ec748e
-# ╠═9b3b882a-7113-11eb-33c9-57832bd1f4a4
 # ╠═a58c1c0c-7113-11eb-25f7-c30459e39e7c
 # ╟─ba950b68-7115-11eb-13b6-ffe94099e7ec
-# ╠═13b996d2-7116-11eb-1c1b-ad7ba95014ff
 # ╠═36331fec-7118-11eb-0956-e16a37f156ca
-# ╠═5493c644-7118-11eb-3b7e-f74db831e9fa
 # ╠═64fdf1ee-7118-11eb-0434-d9a604eee2f3

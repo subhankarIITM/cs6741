@@ -54,7 +54,7 @@ begin
 end
 
 # ╔═╡ 6838ea6c-715b-11eb-1d6c-9b306b4b0dbd
-plot(p_vals, probability_to_have_at_least_10, xlabel="Value of p", ylabel = "Probability of ending up with more than 10")
+plot(p_vals, probability_to_have_at_least_10, xlabel="Value of p", ylabel = "Probability of ending up with at least 10")
 
 # ╔═╡ Cell order:
 # ╠═b4c73bf6-7152-11eb-1d08-97725e7edcc2

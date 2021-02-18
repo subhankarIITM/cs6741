@@ -15,12 +15,12 @@ end
 begin
 	range = -10:10
 	n_samples = 10^6
-	Random.seed!(0)
-	exp_ints = rand(range, n_samples)
 end
 
 # ╔═╡ d9fd91fe-7080-11eb-150a-9dccb13c4da2
 begin
+	Random.seed!(0)
+	exp_ints = rand(range, n_samples)
 	means = []
 	init = 0
 	for i in 1:n_samples

@@ -34,6 +34,9 @@ function compare_strings(str1, str2, n_similarity)
 	end
 end
 
+# ╔═╡ d9818978-71f3-11eb-0999-490174fd81f1
+md"To ensure that we store less than 1000 passwords when attempting , we just make the criteria for storing passwords by changing it from at least 2 characters matching and present in the correct positions to 3 characters matching and present in the correct positions."
+
 # ╔═╡ 251c2fe4-7151-11eb-2495-d5fb57b92498
 similarity_threshold = 3
 
@@ -42,6 +45,7 @@ n_experiments = 10^6
 
 # ╔═╡ 32898136-7151-11eb-1a18-9125fd5b18b2
 begin
+	Random.seed!(10)
 	matches = 0
 	for i in 1:n_experiments
 		attempted_password = rand(chars, password_length)
@@ -53,10 +57,10 @@ begin
 end
 
 # ╔═╡ 298badce-7152-11eb-1b62-d984bdc73355
-p_match
+md"The probability of matching at least $similarity_threshold characters in the right position is $p_match"
 
 # ╔═╡ 4adbbf32-7152-11eb-0e3b-b13757e496a2
-matches
+md"The number of passwords saved after $n_experiments attempts is $matches"
 
 # ╔═╡ Cell order:
 # ╠═c8d82e90-7150-11eb-2ab0-716ca4990e8d
@@ -64,8 +68,9 @@ matches
 # ╠═e7c02482-7150-11eb-1ef9-8f8dd345f981
 # ╠═f3ac5ff6-7150-11eb-2ab5-e77a71442f41
 # ╠═f527b452-7150-11eb-396e-49cae14d1a95
+# ╟─d9818978-71f3-11eb-0999-490174fd81f1
 # ╠═251c2fe4-7151-11eb-2495-d5fb57b92498
 # ╠═cdeb2d02-7151-11eb-3ac1-ef492523b2ed
 # ╠═32898136-7151-11eb-1a18-9125fd5b18b2
-# ╠═298badce-7152-11eb-1b62-d984bdc73355
-# ╠═4adbbf32-7152-11eb-0e3b-b13757e496a2
+# ╟─298badce-7152-11eb-1b62-d984bdc73355
+# ╟─4adbbf32-7152-11eb-0e3b-b13757e496a2
