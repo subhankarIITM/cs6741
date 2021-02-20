@@ -13,8 +13,8 @@ end
 
 # ╔═╡ d396c3f4-707f-11eb-2bff-05e2ecd1590d
 begin
-	range = -10:10
-	n_samples = 10^6
+	range = -1000:1000
+	n_samples = 10^7
 end
 
 # ╔═╡ d9fd91fe-7080-11eb-150a-9dccb13c4da2
