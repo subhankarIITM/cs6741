@@ -79,7 +79,7 @@ end
 begin
 	run_again_replacement
 	absolute_difference = abs.(counts .- theoretical_probability_vals)
-	relative_difference = absolute_difference./counts
+	relative_difference = absolute_difference./theoretical_probability_vals
 end
 
 # ╔═╡ 7a11cfc6-733f-11eb-0131-530518c06b54
@@ -128,7 +128,7 @@ end
 begin
 	run_again_non_replacement
 	absolute_difference_ = abs.(counts_ .- theoretical_probability_vals_)
-	relative_difference_ = absolute_difference_[1:n_cards_to_draw]./counts_[1:n_cards_to_draw]
+	relative_difference_ = absolute_difference_[1:n_cards_to_draw]./theoretical_probability_vals_[1:n_cards_to_draw]
 end
 
 # ╔═╡ 7c5a559e-7341-11eb-390c-297df4c3a517
