@@ -25,7 +25,7 @@ md"# Question 1"
 # ╔═╡ aae6c9d2-7cd1-11eb-2318-45fee636a988
 begin
 	df1 = DataFrame(religion = String[], less_10k = Int[], _10_20k = Int[], _20_30k = Int[], _30_40k = Int[], _40_50k = Int[], _50_75k = Int[], _75_100k = Int[], _100_150k = Int[], greater_150k = Int[], refused = Int[])
-	push!(df1,["Agnostic",27,34,60,81,76,137,122,109,84,16])
+	push!(df1,["Agnostic",27,34,60,81,76,137,122,109,84,96])
     push!(df1,["Atheist",12,27,37,52,35,70,62,45,20,8])
     push!(df1,["Buddhist",27,21,30,34,33,58,44,23,15,5])
     push!(df1,["Catholic",418,617,732,670,638,1116,770,438,345,100])
@@ -35,14 +35,10 @@ begin
     push!(df1,["Historically Black Prot",228,244,236,238,197,223,338,97,43,10])
     push!(df1,["Jehovah's Witness",20,27,24,24,21,30,29,19,12,4])
     push!(df1,["Jewish",19,19,25,25,30,95,88,62,18,7])
-end
-
-
-# ╔═╡ 760fd8cc-7cfc-11eb-0da3-11e14677da6d
-begin
 	colnames1 = ["religion","<\$10k","\$10k-20k", "\$20k-30k", "\$30k-40k", "\$40k-50k", "\$50k-75k", "\$75k-100k", "\$100k-150k", ">\$150k", "Don't know/Refused"]
 	rename!(df1, Symbol.(colnames1))
 end
+
 
 # ╔═╡ 31bc9568-7d04-11eb-261a-f19f269af975
 begin
@@ -214,17 +210,22 @@ begin
 	push!(df3, (2030, "Alice Deejay", "6:50", "Better Off Alone", "2030-09-02", 1, 91))
 	push!(df3, (2030, "Alice Deejay", "6:50", "Better Off Alone", "2030-09-09", 2, 87))
 	push!(df3, (2030, "Alice Deejay", "6:50", "Better Off Alone", "2030-09-16", 3, 92))	
-
-	grouped3 = groupby(df3, [:artist, :track])
-	
-	df3.id = grouped3.groups
 end
 
-# ╔═╡ 50dc0a5a-7d24-11eb-0683-17fe5c0c4e08
-song_details = unique(df3[:, [:id, :artist, :track, :time]])
+# ╔═╡ 55fa9dec-7dd3-11eb-3eef-bf3a46979b19
+begin
+	grouped3 = groupby(df3, [:artist, :track]);
+	df3.id = grouped3.groups;
+	song_details = unique(df3[:, [:id, :artist, :track, :time]]);
+	date_rank = df3[:, [:id, :date, :rank]];
+	"Just to prevent displaying output here"
+end
 
-# ╔═╡ b12da236-7d24-11eb-2df2-e3285755dad3
-date_rank = df3[:, [:id, :date, :rank]]
+# ╔═╡ 23391f3c-7dd3-11eb-0c49-0f1577d50b0f
+song_details
+
+# ╔═╡ 29daf00e-7dd3-11eb-2305-5d0c5ec23827
+date_rank
 
 # ╔═╡ 01630c00-7d25-11eb-0000-bfff3fbcb4fd
 md"# Question 4"
@@ -235,6 +236,7 @@ begin
 	str = String(resp.body)
 	jobj = JSON.Parser.parse(str)
 	x = jobj["cases_time_series"]
+# 	convert string to integer for easier operation later
 	df4 = reduce(vcat, DataFrame.(x))	
 	df4[!, :dailyconfirmed] = [parse(Int,x) for x in df4[!, :dailyconfirmed]]
 	df4[!, :dailydeceased] = [parse(Int,x) for x in df4[!, :dailydeceased]]
@@ -290,15 +292,15 @@ end
 # ╟─b7b8a74a-7d92-11eb-1176-65f6302361d9
 # ╠═6b0a6628-7cd0-11eb-361f-874aac5e663d
 # ╠═aae6c9d2-7cd1-11eb-2318-45fee636a988
-# ╠═760fd8cc-7cfc-11eb-0da3-11e14677da6d
 # ╠═31bc9568-7d04-11eb-261a-f19f269af975
 # ╟─d1492478-7d06-11eb-3873-4179206d9452
 # ╠═ecaf3df6-7d06-11eb-2e25-6d4686e487e4
 # ╠═a6ca4570-7d0a-11eb-3222-f3026db58f93
 # ╟─fadbb466-7d1c-11eb-2371-0112133c6b27
 # ╠═30657918-7d23-11eb-3465-8b7760adc54c
-# ╠═50dc0a5a-7d24-11eb-0683-17fe5c0c4e08
-# ╠═b12da236-7d24-11eb-2df2-e3285755dad3
+# ╠═55fa9dec-7dd3-11eb-3eef-bf3a46979b19
+# ╠═23391f3c-7dd3-11eb-0c49-0f1577d50b0f
+# ╠═29daf00e-7dd3-11eb-2305-5d0c5ec23827
 # ╟─01630c00-7d25-11eb-0000-bfff3fbcb4fd
 # ╠═25d60a56-7d25-11eb-1dc4-c1aac8b99a28
 # ╠═7e24bc6c-7d79-11eb-0ac1-8340a52ab9bb
