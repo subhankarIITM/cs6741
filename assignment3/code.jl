@@ -79,15 +79,14 @@ begin
 	end
 	kld_with_normals = []
 	for i in 2:n
-		D_n_ = Normal(n/2, sqrt(n/12))
+		D_n_ = Normal(i/2, sqrt(i/12))
 		push!(kld_with_normals, kld(pdfs_sum_n_uniform[i-1], pdf.(D_n_, x_range), dx))
 	end
-
 end;
 
 # ╔═╡ 46b8c128-9224-11eb-293b-b92bc1535b84
 begin
-	plot(x_range, pdfs_sum_n_uniform, label=["n=2" "n=3" "n=4" "n=5" "n=6" "n=7" "n=8" "n=9" "n=10"], xlabel="x", ylabel="PDF : Sum of n Unif(0,1) RVs")
+	plot!(x_range, pdfs_sum_n_uniform, label=["n=2" "n=3" "n=4" "n=5" "n=6" "n=7" "n=8" "n=9" "n=10"], xlabel="x", ylabel="PDF : Sum of n Unif(0,1) RVs")
 end
 
 # ╔═╡ ee255f4e-922f-11eb-394e-95079b2fdcb0
