@@ -152,8 +152,8 @@ begin
 	gap = edges[2] - edges[1]
 	mode_ = edges[ind] + (gap/2)
 	plot!([median(ranges), median(ranges)], [0, 10], label="Median", line=(2, :arrow, :black))
-	plot!([mean(ranges), mean(ranges)], [0, 9.1], label="Mean", line=(4, :dot, :black))
-	plot!([mode_, mode_], [0, 11.2], label="Mode", line=(2, :dash, :black))
+	plot!([mean(ranges), mean(ranges)], [0, 9.1], label="Mean", line=(2, :arrow, :red))
+	plot!([mode_, mode_], [0, 11.2], label="Mode", line=(2, :arrow, :blue))
 end
 
 # ╔═╡ 5a008fee-9310-11eb-2ece-17ec9315d5b7
@@ -186,7 +186,7 @@ end;
 
 # ╔═╡ 7f54296e-8cca-11eb-3bec-036411e1844b
 begin
-	plot(theta_vals, CDF_comp_range_uniform.(theta_vals), line=2, label="Theoretical Value", xlabel="theta", ylabel="P(range>=theta)")
+	plot(theta_vals, CDF_comp_range_uniform.(theta_vals), line=2, label="Theoretical Value", xlabel="theta", ylabel="P(range>=theta)", legend=:bottomleft)
 	plot!(theta_vals, p_vals, line=(5, :orange, :dash), label="Empirical Estimate")
 end
 
