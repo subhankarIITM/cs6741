@@ -29,7 +29,7 @@ begin
 		return sum(pdf1[non_zero_vals].*log2.(pdf1[non_zero_vals]./pdf2[non_zero_vals]))*dx
 	end;
 	dx=0.01
-	x_range_ = -10:dx:10
+	x_range_ = -37:dx:37
 	dof_vals = 1:5
 	kld_vals = []
 	norm_pdf_vals = pdf.(Normal(0,1), x_range_)
@@ -86,7 +86,7 @@ end;
 
 # ╔═╡ 46b8c128-9224-11eb-293b-b92bc1535b84
 begin
-	plot!(x_range, pdfs_sum_n_uniform, label=["n=2" "n=3" "n=4" "n=5" "n=6" "n=7" "n=8" "n=9" "n=10"], xlabel="x", ylabel="PDF : Sum of n Unif(0,1) RVs")
+	plot(x_range, pdfs_sum_n_uniform, label=["n=2" "n=3" "n=4" "n=5" "n=6" "n=7" "n=8" "n=9" "n=10"], xlabel="x", ylabel="PDF : Sum of n Unif(0,1) RVs")
 end
 
 # ╔═╡ ee255f4e-922f-11eb-394e-95079b2fdcb0
